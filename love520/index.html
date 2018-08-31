@@ -61,16 +61,30 @@
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<!--雪花-->
 		<script src="js/snow.js"></script>
+	//第一步：首先加载一个微信JS-SDK
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	//第2步：写一些配置
+<script>
+	  function autoPlayAudio() {
+	wx.config({
+	// 配置信息, 即使不正确也能使用 wx.ready
+	debug: false,
+	appId: '',
+	timestamp: 1,
+	nonceStr: '',
+	signature: '',
+	jsApiList: []
+	});
+	wx.ready(function() {
+		var globalAudio=document.getElementById("bg-audio");
+		globalAudio.play();
+	});
+	};
+	// 解决ios音乐不自动播放的问题
+	autoPlayAudio();
+	</script>
 		<script>
-																																																															  var bgAudio = document.getElementById('bg-audio');
- 	var bgAudio = document.getElementById('bg-audio');
-		bgAudio.load();
-		bgAudio.play();
-		// 兼容在微信里自动播放
-		   document.addEventListener("WeixinJSBridgeReady", function () {
-			bgAudio.load();
-			bgAudio.play();
-		}, false);
+
 
 	$(".pic ul li").each(function(i){//遍历
 				var deg=360/$(".pic ul li").size();//size个数
