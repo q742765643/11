@@ -52,25 +52,23 @@
 		<div id="text"></div>
 		<!--end text-->
 	<!--播放背景音乐容器-->
-																																																																																																																																																					  <audio preload="preload" id="music" src=""></audio>
-       <audio preload="preload" id="music" src=""></audio>
+		<div id="bgmvideo"></div>
 
 
-																																																																																																																																																																																																																																																																																																																																		 <script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
 		<!--雪花-->
 		<script src="js/snow.js"></script>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											<script>
-	setTimeout(function(){
-		$(window).scrollTop(1);
-	},0);
-	document.getElementById('music').play();
-	document.addEventListener("WeixinJSBridgeReady",function(){
-	WeixinJSBridge.invoke('getNetworkType',{},function(e){
-		document.getElementById('music').play();
-	});
-	},false);
-	</script>
 		<script>
+	// session控制音乐
+        $(document).ready(function () {
+			if (!sessionStorage.getItem("bgm")) {
+				$("#bgmvideo").append(
+			'<embed src="music.mp3" hidden="true"/>'
+			);
+				sessionStorage.setItem("bgm", 1)
+			}
+			})
+
 	$(".pic ul li").each(function(i){//遍历
 				var deg=360/$(".pic ul li").size();//size个数
 				//当前的li对象 添加css样式
