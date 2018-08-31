@@ -52,22 +52,25 @@
 		<div id="text"></div>
 		<!--end text-->
 	<!--播放背景音乐容器-->
-		<div id="bgmvideo"></div>
+		<div id="bgmvideo">
+	   <audio id="bg-audio" src="music.mp3" loop="loop" autoplay="autoplay"></audio>
+
+																				</div>
 
 
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<!--雪花-->
 		<script src="js/snow.js"></script>
 		<script>
-	// session控制音乐
-        $(document).ready(function () {
-			if (!sessionStorage.getItem("bgm")) {
-				$("#bgmvideo").append(
-			'<embed src="music.mp3" hidden="true"/>'
-			);
-				sessionStorage.setItem("bgm", 1)
-			}
-			})
+																																																															  var bgAudio = document.getElementById('bg-audio');
+ 	var bgAudio = document.getElementById('bg-audio');
+		bgAudio.load();
+		bgAudio.play();
+		// 兼容在微信里自动播放
+		   document.addEventListener("WeixinJSBridgeReady", function () {
+			bgAudio.load();
+			bgAudio.play();
+		}, false);
 
 	$(".pic ul li").each(function(i){//遍历
 				var deg=360/$(".pic ul li").size();//size个数
