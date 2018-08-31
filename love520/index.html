@@ -4,7 +4,7 @@
 		<meta charset="utf-8"/>
 		<meta name="keywords" content=""/>
 		<meta name="description" content=""/>
-		<title>维维</title>
+		<title>维维我爱你</title>
 		<style style="text/css">
 			*{margin:0;padding:0;}
 			body{background:url("images/1.jpg");}
@@ -51,35 +51,13 @@
 		<!--start text-->
 		<div id="text"></div>
 		<!--end text-->
-																																																																																																																																																																																																																																																																																																																								 <audio src="{$uploadpath}{$FileUpload}" autoplay loop id="audiojs"></audio>
-
- <audio src="music.mp3" autoplay loop id="audiojs"></audio>
-
-		<script src="js/jquery-1.9.1.min.js"></script>
+		<embed src="music.mp3" hidden="true"/>
+	<audio src="music.mp3" id="Jaudio" class="media-audio" autoplay preload loop="loop"></audio>
+	   <script src="js/jquery-1.9.1.min.js"></script>
 		<!--雪花-->
 		<script src="js/snow.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       <script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       document.addEventListener('DOMContentLoaded', function () {
-    function audioAutoPlay() {
-        var audio = document.getElementById('audiojs');
-        audio.play();
-    document.addEventListener("WeixinJSBridgeReady", function () {
-        audio.play();
-    }, false);
-    }
-    audioAutoPlay();
-    });
-
-    if (/i(Phone|P(o|a)d)/.test(navigator.userAgent)) {
-    $(document).one('touchstart',
-    function(e) {
-        $('#audiojs').get(0).touchstart = true;
-        $('#audiojs').get(0).play();
-        return false;
-    });
-    }
-    </script>
 		<script>
+
 			$(".pic ul li").each(function(i){//遍历
 				var deg=360/$(".pic ul li").size();//size个数
 				//当前的li对象 添加css样式
@@ -106,6 +84,19 @@
 					clearTimeout(id);
 				}
 			}
-		</script>
+
+	function audioAutoPlay(id){
+		var audio = document.getElementById(id);
+		audio.play();
+	document.addEventListener("WeixinJSBridgeReady", function () {
+		audio.play();
+	}, false);
+	document.addEventListener('YixinJSBridgeReady', function() {
+		audio.play();
+	}, false);
+	}
+	audioAutoPlay('Jaudio');
+
+	</script>
 	</body>
 </html>
